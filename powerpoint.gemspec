@@ -5,7 +5,7 @@ require 'powerpoint/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "powerpoint"
-  spec.version       = Powerpoint::VERSION
+  spec.version       = "1.9"
   spec.authors       = ["pythonicrubyist"]
   spec.email         = ["pythonicrubyist@gmail.com"]
   spec.description   = %q{A Ruby gem that can create a PowerPoint presentation.}
