@@ -26,8 +26,8 @@ module Powerpoint
       @slides << Powerpoint::Slide::Textual.new(presentation: self, title: title, content: content)
     end
 
-    def add_pictorial_slide(title, image_path, coords = {})
-      @slides << Powerpoint::Slide::Pictorial.new(presentation: self, title: title, image_path: image_path, coords: coords)
+    def add_pictorial_slide(title, content, image_path, coords = {})
+      @slides << Powerpoint::Slide::Pictorial.new(presentation: self, title: title, content: content, image_path: image_path, coords: coords)
     end
 
     def add_text_picture_slide(title, image_path, content = [])

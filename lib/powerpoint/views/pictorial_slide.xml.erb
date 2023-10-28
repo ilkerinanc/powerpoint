@@ -25,17 +25,64 @@
             <p:ph type="title"/>
           </p:nvPr>
         </p:nvSpPr>
-        <p:spPr/>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="182880" y="182880"/>
+            <a:ext cx="8778240" cy="609600"/> <!-- Adjust width (cx) considering margins -->
+          </a:xfrm>
+        </p:spPr>
         <p:txBody>
           <a:bodyPr/>
           <a:lstStyle/>
           <a:p>
+            <a:pPr algn="l"/>
             <a:r>
-              <a:rPr dirty="0" lang="en-US" smtClean="0"/>
+              <a:rPr lang="en-US" dirty="0"  sz="2000" smtClean="0">
+                <a:latin typeface="Cambria" pitchFamily="34" charset="0"/>
+                <a:sz val="2400"/>
+              </a:rPr>
               <a:t><%= title %></a:t>
             </a:r>
-            <a:endParaRPr dirty="0" lang="en-US"/>
+            <a:endParaRPr lang="en-US" dirty="0"/>
           </a:p>
+        </p:txBody>
+      </p:sp>
+      <p:sp>
+        <p:nvSpPr>
+          <p:cNvPr id="3" name="Content Placeholder 2"/>
+          <p:cNvSpPr>
+            <a:spLocks noGrp="1"/>
+          </p:cNvSpPr>
+          <p:nvPr>
+            <p:ph idx="1"/>
+          </p:nvPr>
+        </p:nvSpPr>
+        <p:spPr>
+          <a:xfrm>
+            <a:off x="183880" y="792480"/> <!-- Positioned just below the title -->
+            <a:ext cx="8778240" cy="4345920"/> <!-- Adjust width (cx) and height (cy) considering margins -->
+          </a:xfrm>
+        </p:spPr>
+        <p:txBody>
+          <a:bodyPr/>
+          <a:lstStyle/>
+          <% content.each_with_index do |c, index| %>
+          <a:p>
+            <a:pPr algn="l" lvl="0"> 
+              <a:buNone/>
+            </a:pPr>
+            <a:r>
+              <a:rPr lang="en-US" dirty="0"  sz="1000" smtClean="0">
+                <a:latin typeface="Arial" pitchFamily="34" charset="0"/>
+                <a:sz val="1200"/>
+              </a:rPr>
+              <a:t><%= c %></a:t>
+            </a:r>
+          <% if content.length == (index + 1) %>
+          <a:endParaRPr lang="en-US"/>
+          <% end %>
+          </a:p>
+          <% end %>
         </p:txBody>
       </p:sp>
       <p:pic>
@@ -60,19 +107,15 @@
             <a:fillRect/>
           </a:stretch>
         </p:blipFill>
-        <% if coords.any? %>
         <p:spPr>
           <a:xfrm>
-            <a:off x="<%= coords[:x].to_s %>" y="<%= coords[:y].to_s %>"/>
-            <a:ext cx="<%= coords[:cx].to_s %>" cy="<%= coords[:cy].to_s %>"/>
+            <a:off x="6580704" y="4523803"/> <!-- Position considering right and bottom margins -->
+            <a:ext cx="2380416" cy="438297"/>
           </a:xfrm>
           <a:prstGeom prst="rect">
             <a:avLst/>
           </a:prstGeom>
         </p:spPr>
-        <% else %>
-        <p:spPr/>
-        <% end %>
       </p:pic>
     </p:spTree>
     <p:extLst>

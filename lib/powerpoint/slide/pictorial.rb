@@ -8,13 +8,13 @@ module Powerpoint
     class Pictorial
       include Powerpoint::Util
 
-    	attr_reader :image_name, :title, :coords, :image_path
+      attr_reader :image_name, :title, :content, :coords, :image_path
 
-    	def initialize(options={})
-				require_arguments [:presentation, :title, :image_path], options
-      	options.each {|k, v| instance_variable_set("@#{k}", v)}
+      def initialize(options={})
+        require_arguments [:presentation, :title, :content, :image_path], options
+        options.each {|k, v| instance_variable_set("@#{k}", v)}
         @coords = default_coords unless @coords.any?
-      	@image_name = File.basename(@image_path)
+        @image_name = File.basename(@image_path)
       end
 
       def save(extract_path, index)
@@ -41,7 +41,7 @@ module Powerpoint
       private :default_coords
 
       def save_rel_xml(extract_path, index)
-        render_view('pictorial_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels", index: index)
+        render_view('pictorial_rel.xml.erb', "#{extract_path}/ppt/slides/_rels/slide#{index}.xml.rels")
       end
       private :save_rel_xml
 
